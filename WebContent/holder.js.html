@@ -36,6 +36,10 @@ body {
 padding-bottom: 70px; */
 
 }
+
+
+#sample11 {background:url(?holder.js/200x200?theme=vine) repeat}
+
 </style>
 
 </head>
@@ -60,13 +64,15 @@ padding-bottom: 70px; */
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-					<img src="holder.js/300x200">
+					<img src="holder.js/300x200?theme=sky&text=testtheme" class="img1">
+					<img src="holder.js/300x200?theme=mytheme" class="img1">
+					<img src="holder.js/300x200" >
 
 			</div>			
 
 			<div class="col-md-6">
 
-
+ <img data-src="example.com/100x100?theme=simple" id="new">
 
 			</div>	
 		</div>
@@ -77,15 +83,15 @@ padding-bottom: 70px; */
 				
 				
 
-				<div class="row">
+				<div class="row holderjs" id = "sample11">
 			<div class="col-md-4">
-
+				<img data-src="holder.js/100px75?theme=social">
 			
 			</div>
 			<div class="col-md-4">
-
+				<img data-src="holder.js/200x200?auto=yes&textmode=exact">
 			</div>			
-			<div class="col-md-4">
+			<div class="col-md-4"  >
 
 			
 			
@@ -109,7 +115,40 @@ padding-bottom: 70px; */
 		});
 
 		$(function () {
+
+			Holder.addTheme("mytheme", {
+				  bg: "#007",
+				  fg: "#aaa",
+				  size: 11,
+				  font: "Monaco",
+				  fontweight: "normal",
+			      text:"test theme"
+			});
 			
+			
+			Holder.run({
+				  images: "img"
+			});
+			
+ 			Holder.run({
+				  domain: "example.com",
+				  themes: {
+				    "simple": {
+				      background: "#fff",
+				      foreground: "#000",
+				      size: 12
+
+				    }
+				  },
+				  images: "#new"
+			});		
+ 			
+ 			
+ 			Holder.addTheme("new", {
+ 				  foreground: "#ccc",
+ 				  background: "#000",
+ 				  size: 10
+ 				}).addImage("holder.js/200x100?theme=new", "body").run();
 			
 		});
 
